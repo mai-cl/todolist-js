@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header"><img src="./assets/to-do-list.png" alt="" class="header__img"><h1 class="header__title">TODO List</h1></header>
+    <main class="main">
+        <form class="taskform">
+            <div class="form-group">
+                <input type="text" class="taskform__input" placeholder="New task">
+                <button class="btn btn-add"><ion-icon name="add-outline" class="icon-medium"></ion-icon></button>
+            </div>
+            <button class="btn btn-clear-all">Clear all</button>
+            <button class="btn btn-clear-completed">Clear completed</button>
+        </form>
+        <ul class="todolist">
+        </ul>
+    </main>
+
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    background-image: linear-gradient(45deg, rgb(223, 110, 110), rgb(115, 65, 145));
+    background-attachment: fixed;
+}
+
+.header {
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.header__img {
+    width: 5rem;
+    margin-right: 1rem;
+}
+
+.header__title {
+    font-size: 4rem;
+    font-weight: 300;
+}
+
+.main {
+    padding-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.taskform {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 100%;
+    width: 60rem;
+}
+
+.form-group {
+    display: flex;
+}
+
+.taskform__input {
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    padding: 1rem;
+    font-family: 'Nunito', sans-serif;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+    height: 4rem;
+}
+
+
+.todolist {
+    max-width: 100%;
+    width: 60rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    backface-visibility: hidden;
+}
+
+.todolist__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    text-overflow: ellipsis;  /* it s magic  :D */
+    background-color: rgb(255, 255, 255, .6);
+    margin-bottom: 1rem;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+    /* border-radius: 4px; */
+    overflow: hidden;
+    transition: all .2s;
+}
+
+.todolist__checkbox {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 1.5rem;
+    height: 18px;
+    width: 18px;
+    border: 1.5px solid rgba(0,0,0,.6);
+    border-radius: 3px;
+    flex: 0 0 auto;
+}
+
+.todolist__item.checked {
+    opacity: .6;
+}
+
+.todolist__item.checked .todolist__checkbox::before {
+    content: "\2713";
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    font-size: 2.3rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.todolist__item.checked .todolist__text {
+    text-decoration: line-through;
+}
+
+.todolist__item-delete {
+    animation-name: item-delete-animation;
+    animation-duration: .3s;
+    animation-timing-function: ease-out;
+}
+
+/* .todolist__item::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    background-color: rgb(223, 110, 110);
+    width: .5rem;
+    height: 100%;
+} */
+
+@keyframes item-delete-animation {
+    0% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(400px);
+    }
+}
+
+.todolist__text {
+    font-size: 2rem;
+    padding: 1.5rem;
+    margin-right: auto;
+    
+}
+
+.btn {
+    padding: 1.5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+}
+
+.btn-clear-all,
+.btn-clear-completed {
+    color: white;
+    height: 4rem;
+    padding: 0 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+}
+
+.btn-clear-all {
+    background-color: rgb(223, 110, 110);
+}
+
+.btn-clear-completed {
+    background-color: mediumseagreen;
+}
+
+.btn-delete {
+    background-color: transparent;
+    align-self: stretch;
+    
+}
+
+.btn-delete:hover {
+    background-color: rgb(223, 110, 110);
+    color: white;
+}
+
+.btn-add {
+    background-color: rgb(115, 65, 145);
+    height: 4rem;
+    width: 4rem;
+    padding: 0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+}
+
+.btn-add .icon-medium {
+    color: white;
+}
+
+.icon-medium {
+    font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .form-group {
+        flex: 1 1 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+}
