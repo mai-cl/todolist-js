@@ -45,6 +45,7 @@ elements.todolist.addEventListener('click', e => {
 });
 
 const addTask = () => {
+    if ((/^\s*$/).test(elements.taskInput.value)) return;
     const taskDescription = elements.taskInput.value;
     const newTask = state.taskList.addTask(taskDescription);
     taskView.renderTask(newTask);
