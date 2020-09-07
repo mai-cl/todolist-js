@@ -5,6 +5,12 @@ import * as taskView from './js/views/taskView';
 
 const state = {};
 
+elements.toggleBtn.addEventListener('click', () => {
+    elements.toggleBtn.classList.toggle('enable');
+    elements.body.classList.toggle('light');
+    elements.body.classList.toggle('dark');
+});
+
 window.addEventListener('load', () => {
     if (!state.taskList) state.taskList = new TaskList();
     state.taskList.loadStorage();
