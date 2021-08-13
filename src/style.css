@@ -213,7 +213,7 @@ body {
   background-color: var(--primary-color);
 }
 
-.btn-delete {
+.btn-task {
   background-color: transparent;
   align-self: stretch;
   color: inherit;
@@ -221,7 +221,7 @@ body {
   font-size: 1.8rem;
 }
 
-.btn-delete:hover {
+.btn-task:hover {
   background-color: var(--primary-color);
   color: var(--white-color);
 }

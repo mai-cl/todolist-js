@@ -13,8 +13,11 @@ export const renderTask = (task) => {
             <div class="todolist__text">
                 ${task.description}
             </div>
-            <button class="btn btn-delete">
-                <i class="far fa-trash-alt"></i>
+            <button class="btn btn-task btn-edit">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-task btn-delete">
+              <i class="far fa-trash-alt"></i>
             </button>
         </li>
     `;
