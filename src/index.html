@@ -21,6 +21,7 @@
     />
   </head>
   <body class="light">
+    <div class="modal"></div>
     <header class="header">
       <div class="header__img">
         <i class="fas fa-tasks"></i>
@@ -30,20 +31,26 @@
         <div class="toggle"></div>
       </div>
     </header>
-    <main class="main">
+    <section class="menu">
       <form class="taskform">
         <div class="form-group">
-          <input type="text" class="taskform__input" placeholder="New task" />
+          <input
+            type="text"
+            class="taskform__input"
+            placeholder="Nueva tarea"
+          />
           <button class="btn btn-add">
             <i class="fas fa-plus"></i>
           </button>
         </div>
-        <button class="btn btn-clear-all">Clear all</button>
-        <button class="btn btn-clear-completed">Clear completed</button>
       </form>
+      <div class="taskoptions">
+        <button class="btn btn-clear-all">Eliminar todo</button>
+        <button class="btn btn-clear-completed">Eliminar completados</button>
+      </div>
+    </section>
+    <main class="main">
       <ul class="todolist"></ul>
     </main>
-
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   </body>
 </html>
