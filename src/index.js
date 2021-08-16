@@ -4,7 +4,7 @@ import TaskList from "./js/models/TaskList";
 import * as taskView from "./js/views/taskView";
 import * as modalView from "./js/views/modalView";
 
-const state = {};
+const state = { idSelectedTask: null };
 
 elements.toggleBtn.addEventListener("click", () => {
   elements.toggleBtn.classList.toggle("enable");
@@ -45,6 +45,7 @@ elements.todolist.addEventListener("click", (e) => {
 
   if (e.target.matches(".btn-edit, .btn-edit *")) {
     const idTask = e.target.closest(".todolist__item").dataset.id;
+    state.idSelectedTask = idTask;
     const taskDescription = state.taskList.getTaskDescription(idTask);
     modalView.showModal(taskDescription);
   }
@@ -54,6 +55,16 @@ elements.todolist.addEventListener("click", (e) => {
     state.taskList.checkTask(idTask);
     taskView.checkTaskUI(idTask);
   }
+});
+
+elements.modal.addEventListener("click", (e) => {
+  if (!e.target.matches(".modal__btn-edit")) return;
+  e.preventDefault();
+  const newDescription = modalView.getInputValue();
+  if (/^\s*$/.test(newDescription)) return;
+  state.taskList.updateDescription(state.idSelectedTask, newDescription);
+  taskView.renderTaskList(state.taskList.tasks);
+  modalView.hiddenModal();
 });
 
 elements.modal.addEventListener("click", (e) => {

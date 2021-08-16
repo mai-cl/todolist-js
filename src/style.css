@@ -101,7 +101,7 @@ body {
   overflow: hidden;
 }
 
-.taskform__input {
+.text-input {
   flex: 1;
   font-size: 2rem;
   outline: none;
@@ -251,6 +251,7 @@ body {
   height: 2rem;
   border-radius: 2rem;
   background-color: var(--white-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
@@ -275,7 +276,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal__btn {
+.modal__btn-edit {
   border-radius: initial;
 }
 

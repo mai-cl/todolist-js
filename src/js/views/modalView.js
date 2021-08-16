@@ -7,8 +7,8 @@ export const showModal = (taskDescription) => {
       <h2 class="modal__title">Editar tarea</h2>
       <form>
         <div class="form-group">
-          <input type="text" class="taskform__input" value="${taskDescription}" />
-          <button class="btn modal__btn">
+          <input type="text" class="text-input modal__input-edit" value="${taskDescription}" />
+          <button class="btn modal__btn-edit">
             Editar
           </button>
         </div>
@@ -24,3 +24,6 @@ export const hiddenModal = () => {
   elements.modal.innerHTML = "";
   elements.modal.classList.remove("show");
 };
+
+export const getInputValue = () =>
+  elements.modal.querySelector(".modal__input-edit").value;

@@ -1,6 +1,7 @@
 import { elements } from "./base";
 
 export const renderTaskList = (tasklist) => {
+  removeAllUI();
   tasklist.forEach((cur) => renderTask(cur));
 };
 

@@ -44,6 +44,11 @@ export default class TaskList {
     return task.description;
   }
 
+  updateDescription(id, newDescription) {
+    this.tasks.find((task) => task.id === id).setDescription(newDescription);
+    this.persistData();
+  }
+
   loadStorage() {
     const backup = localStorage.getItem("todolist");
     let objectList;
