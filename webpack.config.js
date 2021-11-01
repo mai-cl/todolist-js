@@ -6,6 +6,7 @@ const webpack = require('webpack')
 
 module.exports = {
   mode: 'production',
+  /* devtool: 'source-map', */
   entry: {
     main: path.resolve(__dirname, './src/index.js'),
   },
