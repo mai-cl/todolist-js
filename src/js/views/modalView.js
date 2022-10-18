@@ -1,7 +1,6 @@
-import { elements } from "./base";
+import { elements } from './base'
 
-export const showModal = (taskDescription) => {
-  console.log("runshowmodal");
+export const showModal = taskDescription => {
   const markup = `
     <div class="modal__container">
       <h2 class="modal__title">Editar tarea</h2>
@@ -15,15 +14,15 @@ export const showModal = (taskDescription) => {
       </form>
     </div>
     
-  `;
-  elements.modal.insertAdjacentHTML("afterbegin", markup);
-  elements.modal.classList.add("show");
-};
+  `
+  elements.modal.insertAdjacentHTML('afterbegin', markup)
+  elements.modal.classList.add('show')
+}
 
 export const hiddenModal = () => {
-  elements.modal.innerHTML = "";
-  elements.modal.classList.remove("show");
-};
+  elements.modal.innerHTML = ''
+  elements.modal.classList.remove('show')
+}
 
 export const getInputValue = () =>
-  elements.modal.querySelector(".modal__input-edit").value;
+  elements.modal.querySelector('.modal__input-edit').value

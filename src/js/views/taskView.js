@@ -1,55 +1,55 @@
-import { elements } from "./base";
+import { elements } from './base'
 
-export const renderTaskList = (tasklist) => {
-  removeAllUI();
-  tasklist.forEach((cur) => renderTask(cur));
-};
+export const renderTaskList = tasklist => {
+  deleteAll()
+  tasklist.forEach(cur => renderTask(cur))
+}
 
-export const renderTask = (task) => {
+export const renderTask = task => {
   const markup = `
         <li class="todolist__item ${
-          task.isChecked ? "checked" : ""
+          task.isChecked ? 'checked' : ''
         }" data-id="${task.id}">
-            <span class="todolist__checkbox"></span>
+            <span class="todolist__checkbox" data-action="check"></span>
             <div class="todolist__text">
                 ${task.description}
             </div>
-            <button class="btn btn-task btn-edit">
+            <button class="btn btn-task btn-edit" data-action="edit">
               <i class="fas fa-pencil-alt"></i>
             </button>
-            <button class="btn btn-task btn-delete">
+            <button class="btn btn-task btn-delete" data-action="delete">
               <i class="far fa-trash-alt"></i>
             </button>
         </li>
-    `;
-  elements.todolist.insertAdjacentHTML("beforeend", markup);
-};
+    `
+  elements.todolist.insertAdjacentHTML('beforeend', markup)
+}
 
-export const checkTaskUI = (taskId) => {
-  const item = document.querySelector(`.todolist__item[data-id="${taskId}"]`);
-  item.classList.toggle("checked");
-};
+export const toggleCheckTask = taskId => {
+  const item = document.querySelector(`.todolist__item[data-id="${taskId}"]`)
+  item.classList.toggle('checked')
+}
 
-export const removeAllUI = () => {
-  elements.todolist.innerHTML = "";
-};
+export const deleteAll = () => {
+  elements.todolist.innerHTML = ''
+}
 
-export const removeAllCompletedUI = () => {
+export const deleteAllCompleted = () => {
   const checkedTasks = elements.todolist.querySelectorAll(
-    ".todolist__item.checked"
-  );
-  const checkedTasksArr = Array.from(checkedTasks);
-  checkedTasksArr.forEach((task) => task.parentElement.removeChild(task));
-};
+    '.todolist__item.checked'
+  )
+  const checkedTasksArr = Array.from(checkedTasks)
+  checkedTasksArr.forEach(task => task.remove())
+}
 
-export const removeTask = (taskId) => {
-  const item = document.querySelector(`.todolist__item[data-id="${taskId}"]`);
-  item.classList.add("todolist__item-delete");
-};
+export const deleteTask = taskId => {
+  const item = document.querySelector(`.todolist__item[data-id="${taskId}"]`)
+  item.classList.add('todolist__item-delete')
+}
 
-export const clearInput = () => (elements.taskInput.value = "");
+export const onDeleteAnimationEnd = e => {
+  const item = e.target
+  if (item.matches('.todolist__item-delete')) item.remove()
+}
 
-elements.todolist.addEventListener("animationend", (e) => {
-  const target = e.target;
-  if (target.matches("li")) target.parentElement.removeChild(target);
-});
+export const clearInput = () => (elements.taskInput.value = '')

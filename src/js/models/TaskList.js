@@ -32,7 +32,7 @@ export default class TaskList {
     this.persistData()
   }
 
-  checkTask(id) {
+  toggleCheckTask(id) {
     const indexTask = this.tasks.findIndex(cur => id === cur.id)
     const task = this.tasks[indexTask]
     task.toggleCheck()
